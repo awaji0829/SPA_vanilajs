@@ -1,4 +1,6 @@
 import DashBoard from './views/DashBoard.js';
+import Posts from './views/Posts.js';
+import Settings from './views/Settings.js';
 
 const navigateTo = (url) => {
   history.pushState(null, null, url);
@@ -7,14 +9,15 @@ const navigateTo = (url) => {
 
 const router = async () => {
   const routes = [
-    { path: '/', view: () => console.log('대시보드짠!') },
-    { path: '/posts', view: () => console.log('포스트짠!') },
-    { path: '/setting', view: () => console.log('setting짠!') },
+    { path: '/', view: DashBoard },
+    { path: '/posts', view: Posts },
+    { path: '/setting', view: Settings },
   ];
 
   const potentialMaches = routes.map((route) => {
     return { route: route, isMatch: location.pathname === route.path };
   });
+
   let match = potentialMaches.find((potentialMatch) => potentialMatch.isMatch);
 
   if (!match) {
@@ -26,13 +29,11 @@ const router = async () => {
 
   const view = new match.route.view();
 
-  document.querySelector('#app').innerHTML = await view.getHTML();
-
-  console.log(match.route.view());
+  document.querySelector('#app').innerHTML = await view.getHtml();
 };
 window.addEventListener('popstate', router);
 
-document.addEventListener('DOMContentL oaded', () => {
+document.addEventListener('DOMContentLoaded', () => {
   document.body.addEventListener('click', (e) => {
     if (e.target.matches('[data-link]')) {
       e.preventDefault();

@@ -1,5 +1,3 @@
-// const express = require('express');
-// const path = require('path');
 import path from 'path';
 import express from 'express';
 
@@ -11,7 +9,6 @@ import express from 'express';
 // 공홈의 예제
 
 //express로드 , 이를 통해 express모듈을 제어한다.
-// const express = require('express');
 //express()가 application함수를 로드한다. 그것을 app변수에 선언하여 어플리케이션을 만든다.
 const app = express();
 //포트 지정
@@ -26,7 +23,7 @@ app.use(
 );
 app.get('/*', (req, res) => {
   //응답 콜백 함수
-  //"Hello World"를 보내 화면에 출력한다.
+
   // res.send('Hello World!');
   res.sendFile(path.resolve(__dirname, 'frontend', 'index.html'));
 });

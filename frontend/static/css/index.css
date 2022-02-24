@@ -1,0 +1,27 @@
+* {
+    margin: 0;
+}
+
+.nav {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width  : 100px;
+    background-color: orange;
+
+}
+
+.nav__link  {
+    margin : 20px;
+    color: green;
+}
+
+
+#app{
+    position: fixed;
+    left : 140px;
+    padding : 20px;
+
+  
+}
