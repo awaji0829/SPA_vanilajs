@@ -26,11 +26,12 @@ const router = async () => {
       isMatch: true,
     };
   }
-
   const view = new match.route.view();
 
+  // await view.getData();
   document.querySelector('#app').innerHTML = await view.getHtml();
 };
+
 window.addEventListener('popstate', router);
 
 document.addEventListener('DOMContentLoaded', () => {

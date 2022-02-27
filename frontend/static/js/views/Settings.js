@@ -1,4 +1,5 @@
 import AbstractView from './AbstractView.js';
+// import dotenv from 'dotenv';
 
 export default class extends AbstractView {
   constructor() {
@@ -8,7 +9,7 @@ export default class extends AbstractView {
 
   async getHtml() {
     return `<p>
-     세팅!
+세팅~
       </p>
       `;
   }
